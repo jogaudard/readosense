@@ -57,18 +57,8 @@ data <- eo_data(path_data)
 
 # it is more practical to join the environmental data here
 
-library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
-
 data <- data |>
-  left_join(env_variables, by = join_by(f_datetime == datetime))
+  dplyr::left_join(env_variables, by = dplyr::join_by(f_datetime == datetime))
 ```
 
 ### Using fluxible
