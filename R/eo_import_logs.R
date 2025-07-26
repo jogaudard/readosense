@@ -5,10 +5,11 @@
 #' @param open status numbers indicating chamber is open
 #' @param closed status numbers indicating chamber is closed
 #' @return a dataframe with all the information from the logs and measurement id
-#' @importFrom purrr map_dfr
+#' @importFrom purrr map
 #' @importFrom readr read_log
 #' @importFrom tidyr pivot_longer
-#' @importFrom dplyr arrange mutate case_when consecutive_id filter
+#' @importFrom dplyr arrange mutate case_when consecutive_id filter bind_rows
+#' select
 #' @importFrom lubridate as_datetime
 #' @export
 #' @examples
@@ -28,25 +29,32 @@ eo_import_logs <- function(path,
 
 
   # building col names
+  seq_nb_ports <- seq_along(1:nb_ports)
+  indices <- rep(seq_nb_ports, each = length(colnames))
+  rep_colnames <- rep(colnames, times = nb_ports) |>
+    paste(indices, sep = "_")
   log_colnames <- c(
     "epochtime",
-    rep(colnames, times = nb_ports)
+    rep_colnames
   )
 
   chamber_log_read <- list.files(
     path = path,
     full.names = TRUE
   ) |>
-    map_dfr(
+    map(
       read_log,
-      col_names = log_colnames
-    )
+      col_names = log_colnames,
+      show_col_types = FALSE,
+      .progress = TRUE
+    ) |>
+    bind_rows()
 
 # repeated colnames are normal
 chamber_log_all <- chamber_log_read |>
     pivot_longer(!c(.data$epochtime), names_to = c(".value", "variable"), names_sep = "_") |>
     filter(
-        .data$port %in% seq_along(1:nb_ports) # we filter out all the rows with port -1
+        .data$port %in% seq_nb_ports # we filter out all the rows with port -1
     ) |>
     arrange(.data$epochtime) |> # just to be sure
     mutate( # without grouping
@@ -62,7 +70,8 @@ chamber_log_all <- chamber_log_read |>
     ) |>
     mutate(
         measurement_id = consecutive_id(.data$change_id) # just getting rid of the missing id after filter
-        )
+        ) |>
+    select(!"variable")
     
     chamber_log_all
                    }
