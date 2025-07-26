@@ -5,20 +5,23 @@
 #' time
 #' @importFrom dplyr select distinct mutate
 #' @export
-#' @examples 
+#' @examples
+#' path <- system.file("extdata/ex_log", package = "readosense")
+#' eo_import_logs(path) |>
+#' eo_logs()
 
 eo_logs <- function(logs,
-                   time_buffer = 300) {
-    
-chamber_logs <- logs |>
+                    time_buffer = 300) {
+
+  chamber_logs <- logs |>
     mutate(
-        .by = c(measurement_id),
-        closing = min(datetime) - time_buffer, # can be recut in flux_fitting, but so we see better
-        opening = max(datetime) + time_buffer
+      .by = "measurement_id",
+      closing = min(.data$datetime) - time_buffer,
+      opening = max(.data$datetime) + time_buffer
     ) |>
-    select(measurement_id, port, closing, opening) |>
+    select("measurement_id", "port", "closing", "opening") |>
     distinct()
 
 
-chamber_logs
-                   }
+  chamber_logs
+}
