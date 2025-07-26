@@ -16,3 +16,8 @@ pressure (atm) for all chambers
 \description{
 extracts the environmental data from the logs
 }
+\examples{
+path <- system.file("extdata/ex_log", package = "readosense")
+eo_import_logs(path) |>
+eo_env()
+}
