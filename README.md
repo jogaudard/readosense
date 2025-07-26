@@ -7,8 +7,8 @@
 <!-- badges: end -->
 
 The readosense R package provides an easy way to import raw files from
-Eosense ecosystem gas flux chambers as R objects that can be used with
-the
+[Eosense](https://eosense.com/) ecosystem gas flux chambers as R objects
+that can be used with the
 [Fluxible](https://plant-functional-trait-course.github.io/fluxible/)
 package.
 
@@ -70,19 +70,17 @@ data <- data |>
 
 ### Using fluxible
 
-The first step of the fluxible workflow would look like this:
+The first step of the fluxible workflow would then look like this:
 
 ``` r
 library(fluxible)
 
 conc <- flux_match(
-    raw_conc = data,
-    field_record = chamber_log,
-    f_datetime = f_datetime,
-    start_col = closing,
-    end_col = opening,
-    fixed_length = FALSE
+  raw_conc = data,
+  field_record = chamber_log,
+  f_datetime = f_datetime,
+  start_col = closing,
+  end_col = opening,
+  fixed_length = FALSE
 )
-
-# View(conc)
 ```
