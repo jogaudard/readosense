@@ -16,7 +16,7 @@ devtools::run_examples()
 devtools::test()
 
 
-usethis::use_package("readr")
+usethis::use_package("lubridate")
 
 devtools::check()
 
@@ -32,7 +32,7 @@ usethis::use_pkgdown_github_pages()
 usethis::use_readme_rmd()
 devtools::build_readme()
 
-usethis::use_vignette("licoread")
+usethis::use_vignette("")
 devtools::build_vignettes()
 
 rcompendium::add_lifecycle_badge(lifecycle = "experimental", quiet = FALSE)
