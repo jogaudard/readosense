@@ -52,7 +52,7 @@ eo_import_logs <- function(path,
 
 # repeated colnames are normal
 chamber_log_all <- chamber_log_read |>
-    pivot_longer(!c(.data$epochtime), names_to = c(".value", "variable"), names_sep = "_") |>
+    pivot_longer(!c("epochtime"), names_to = c(".value", "variable"), names_sep = "_") |>
     filter(
         .data$port %in% seq_nb_ports # we filter out all the rows with port -1
     ) |>
