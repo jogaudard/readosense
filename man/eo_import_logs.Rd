@@ -32,6 +32,6 @@ a dataframe with all the information from the logs and measurement id
 imports log files from Eosense chambers
 }
 \examples{
-path <- system.file("extdata/ex_log", package = "readosense")
+path <- system.file("extdata/ex_logs", package = "readosense")
 eo_import_logs(path)
 }

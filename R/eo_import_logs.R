@@ -13,7 +13,7 @@
 #' @importFrom lubridate as_datetime
 #' @export
 #' @examples
-#' path <- system.file("extdata/ex_log", package = "readosense")
+#' path <- system.file("extdata/ex_logs", package = "readosense")
 #' eo_import_logs(path)
 
 eo_import_logs <- function(path,

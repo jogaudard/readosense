@@ -6,7 +6,7 @@
 #' @importFrom dplyr select distinct mutate
 #' @export
 #' @examples
-#' path <- system.file("extdata/ex_log", package = "readosense")
+#' path <- system.file("extdata/ex_logs", package = "readosense")
 #' eo_import_logs(path) |>
 #' eo_logs()
 

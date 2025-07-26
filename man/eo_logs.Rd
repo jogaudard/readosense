@@ -19,7 +19,7 @@ time
 extracts the measurements metadata from the logs
 }
 \examples{
-path <- system.file("extdata/ex_log", package = "readosense")
+path <- system.file("extdata/ex_logs", package = "readosense")
 eo_import_logs(path) |>
 eo_logs()
 }
