@@ -7,16 +7,15 @@
 #' @importFrom purrr map_dfr
 #' @importFrom readr read_log
 #' @importFrom tidyr pivot_longer
-#' @importFrom dplyr arrange mutate case_when consecutive_id filter select
-#' distinct
+#' @importFrom dplyr arrange mutate case_when consecutive_id filter
 #' @importFrom lubridate as_datetime
+#' @export
+#' @examples 
 
-
-eo_log <- function(path,
+eo_import_log <- function(path,
                    closed = c(1:3),
                    open = 0,
                    fully_closed = 1,
-                   time_buffer = 300,
                    colnames = c(
                      "port", "valvestatus", "chamberstatus",
                      "aux1", "aux2", "aux3", "aux4", "aux5",

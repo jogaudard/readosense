@@ -2,22 +2,15 @@
 % Please edit documentation in R/eo_log.R
 \name{eo_log}
 \alias{eo_log}
-\title{imports log file from Eosense chambers}
+\title{extracts the measurements metadata from the logs}
 \usage{
-eo_log(
-  path,
-  colnames = c("port", "valvestatus", "chamberstatus", "aux1", "aux2", "aux3", "aux4",
-    "aux5", "temperaturev", "pressure"),
-  nb_ports = 12
-)
+eo_log(logs, time_buffer = 300)
 }
 \arguments{
-\item{path}{folder in which the log files are located}
+\item{logs}{as provided by \link[readosense:eo_import_log]{eo_import_log}}
 
-\item{colnames}{column names as defined in Eosense documentation}
-
-\item{nb_ports}{number of ports}
+\item{buffer}{around the full closure of the chamber in seconds}
 }
 \description{
-imports log file from Eosense chambers
+extracts the measurements metadata from the logs
 }
