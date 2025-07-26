@@ -16,7 +16,7 @@ devtools::run_examples()
 devtools::test()
 
 
-usethis::use_package("")
+usethis::use_package("readr")
 
 devtools::check()
 

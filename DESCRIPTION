@@ -1,11 +1,13 @@
 Package: readosense
-Title: What the Package Does (One Line, Title Case)
+Title: Imports Log and Data Files from Eosense Flux Chambers
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person(given = "Joseph", family = "Gaudard", , "joseph.gaudard@pm.me", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6989-7624"))
+Description: Imports log and data files from Eosense ecosystem gas fluxes chambers and make them into dataframes that can that can directly be used with 'fluxible' <https://cran.r-project.org/package=fluxible>.
+License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Imports: 
+    purrr,
+    readr
