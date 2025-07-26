@@ -27,7 +27,7 @@ You can install the development version of readosense from [GitHub](https://gith
 
 ``` r
 # install.packages("pak")
-pak::pak("jogaudard/reosense")
+pak::pak("jogaudard/readosense")
 ```
 
 ## Workflow

@@ -4,3 +4,6 @@
 ^building_material$
 ^README\.Rmd$
 ^eosense_material$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
