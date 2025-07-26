@@ -1,5 +1,6 @@
 ^readosense\.Rproj$
 ^\.Rproj\.user$
 
-^builsing_material$
+^building_material$
 ^README\.Rmd$
+^eosense_material$

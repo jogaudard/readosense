@@ -7,9 +7,9 @@
 eo_logs(logs, time_buffer = 300)
 }
 \arguments{
-\item{logs}{as provided by \link[readosense:eo_import_log]{eo_import_log}}
+\item{logs}{as provided by \link[readosense:eo_import_logs]{eo_import_logs}}
 
-\item{buffer}{around the full closure of the chamber in seconds}
+\item{time_buffer}{around the full closure of the chamber in seconds}
 }
 \value{
 a dataframe with the measurement ids, port, and closing and opening

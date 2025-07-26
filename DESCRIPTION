@@ -13,7 +13,11 @@ Imports:
     lubridate,
     purrr,
     readr,
+    rlang,
     tidyr
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+LazyData: true
+URL: https://jogaudard.github.io/readosense
+BugReports: https://github.com/jogaudard/readosense/issues

@@ -21,6 +21,8 @@ eo_import_logs(
 
 \item{open}{status numbers indicating chamber is open}
 
+\item{fully_closed}{status number indicating the chamber is fully closed}
+
 \item{colnames}{column names as defined in Eosense documentation}
 
 \item{nb_ports}{number of ports}

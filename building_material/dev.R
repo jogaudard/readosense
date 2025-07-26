@@ -16,7 +16,7 @@ devtools::run_examples()
 devtools::test()
 
 
-usethis::use_package("lubridate")
+usethis::use_package("rlang")
 
 devtools::check()
 

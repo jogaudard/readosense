@@ -5,6 +5,7 @@
 #' @importFrom readr read_table
 #' @importFrom dplyr mutate bind_rows select distinct
 #' @importFrom lubridate as_datetime ymd_hms round_date
+#' @importFrom rlang .data
 #' @export
 #' @examples
 #' path <- system.file("extdata/ex_data", package = "readosense")

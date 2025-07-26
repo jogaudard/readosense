@@ -1,8 +1,9 @@
 #' extracts the environmental data from the logs
-#' @param logs as provided by \link[readosense:eo_import_log]{eo_import_log}
+#' @param logs as provided by \link[readosense:eo_import_logs]{eo_import_logs}
 #' @return a dataframe with the datetime, air temperature (celsius), and
 #' pressure (atm) for all chambers
 #' @importFrom dplyr mutate select
+#' @importFrom rlang .data
 #' @export
 #' @examples
 #' path <- system.file("extdata/ex_logs", package = "readosense")

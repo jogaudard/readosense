@@ -4,6 +4,8 @@
 # readosense
 
 <!-- badges: start -->
+
+[![LifeCycle](https://img.shields.io/badge/lifecycle-experimental-orange)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 The readosense R package provides an easy way to import raw files from

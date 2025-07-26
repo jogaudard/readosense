@@ -4,6 +4,7 @@
 #' @param nb_ports number of ports
 #' @param open status numbers indicating chamber is open
 #' @param closed status numbers indicating chamber is closed
+#' @param fully_closed status number indicating the chamber is fully closed
 #' @return a dataframe with all the information from the logs and measurement id
 #' @importFrom purrr map
 #' @importFrom readr read_log
@@ -11,6 +12,7 @@
 #' @importFrom dplyr arrange mutate case_when consecutive_id filter bind_rows
 #' select distinct
 #' @importFrom lubridate as_datetime round_date
+#' @importFrom rlang .data
 #' @export
 #' @examples
 #' path <- system.file("extdata/ex_logs", package = "readosense")
