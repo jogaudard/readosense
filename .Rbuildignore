@@ -1,0 +1,11 @@
+^readosense\.Rproj$
+^\.Rproj\.user$
+
+^building_material$
+^README\.Rmd$
+^eosense_material$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
+^LICENSE\.md$
