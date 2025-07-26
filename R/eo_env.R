@@ -1,5 +1,7 @@
 #' extracts the environmental data from the logs
 #' @param logs as provided by \link[readosense:eo_import_log]{eo_import_log}
+#' @return a dataframe with the datetime, air temperature (celsius), and
+#' pressure (atm) for all chambers
 #' @importFrom dplyr mutate select
 #' @export
 #' @examples 

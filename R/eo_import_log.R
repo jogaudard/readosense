@@ -4,6 +4,7 @@
 #' @param nb_ports number of ports
 #' @param open status numbers indicating chamber is open
 #' @param closed status numbers indicating chamber is closed
+#' @return a dataframe with all the information from the logs and measurement id
 #' @importFrom purrr map_dfr
 #' @importFrom readr read_log
 #' @importFrom tidyr pivot_longer
