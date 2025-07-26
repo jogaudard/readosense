@@ -9,6 +9,10 @@ eo_env(logs)
 \arguments{
 \item{logs}{as provided by \link[readosense:eo_import_log]{eo_import_log}}
 }
+\value{
+a dataframe with the datetime, air temperature (celsius), and
+pressure (atm) for all chambers
+}
 \description{
 extracts the environmental data from the logs
 }
