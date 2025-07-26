@@ -16,52 +16,52 @@
 #' eo_import_logs(path)
 
 eo_import_logs <- function(path,
-                   closed = c(1:3),
-                   open = 0,
-                   fully_closed = 1,
-                   colnames = c(
-                     "port", "valvestatus", "chamberstatus",
-                     "aux1", "aux2", "aux3", "aux4", "aux5",
-                     "temperaturev", "pressure"
-                   ),
-                   nb_ports = 12) {
+                           closed = c(1:3),
+                           open = 0,
+                           fully_closed = 1,
+                           colnames = c(
+                             "port", "valvestatus", "chamberstatus",
+                             "aux1", "aux2", "aux3", "aux4", "aux5",
+                             "temperaturev", "pressure"
+                           ),
+                           nb_ports = 12) {
 
 
-# building col names
-log_colnames <- c(
+  # building col names
+  log_colnames <- c(
     "epochtime",
     rep(colnames, times = nb_ports)
-)
+  )
 
-chamber_log_read <- list.files(
+  chamber_log_read <- list.files(
     path = path,
     full.names = TRUE
-) |>
+  ) |>
     map_dfr(
-        read_log,
-        col_names = log_colnames
+      read_log,
+      col_names = log_colnames
     )
 
 # repeated colnames are normal
 chamber_log_all <- chamber_log_read |>
-    pivot_longer(!c(epochtime), names_to = c(".value", "variable"), names_sep = "_") |>
+    pivot_longer(!c(.data$epochtime), names_to = c(".value", "variable"), names_sep = "_") |>
     filter(
-        port %in% seq_along(nb_ports) # we filter out all the rows with port -1
+        .data$port %in% seq_along(1:nb_ports) # we filter out all the rows with port -1
     ) |>
-    arrange(epochtime) |> # just to be sure
+    arrange(.data$epochtime) |> # just to be sure
     mutate( # without grouping
         chamber = case_when(
-            chamberstatus %in% closed ~ "open",
-            chamberstatus == open ~ "closed"
+            .data$chamberstatus %in% closed ~ "open",
+            .data$chamberstatus == open ~ "closed"
         ),
-        change_id = consecutive_id(port, chamberstatus), #detecting if same port but new measurement
-        datetime = as_datetime(epochtime) # we work in datetime
+        change_id = consecutive_id(.data$port, .data$chamberstatus), #detecting if same port but new measurement
+        datetime = as_datetime(.data$epochtime) # we work in datetime
     ) |>
     filter(
-        chamberstatus == fully_closed
+        .data$chamberstatus == fully_closed
     ) |>
     mutate(
-        measurement_id = consecutive_id(change_id) # just getting rid of the missing id after filter
+        measurement_id = consecutive_id(.data$change_id) # just getting rid of the missing id after filter
         )
     
     chamber_log_all
