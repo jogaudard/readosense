@@ -3,8 +3,8 @@
 #' @return a dataframe with conitnuous measurement with timestamps
 #' @importFrom purrr map
 #' @importFrom readr read_table
-#' @importFrom dplyr mutate bind_rows select
-#' @importFrom lubridate as_datetime
+#' @importFrom dplyr mutate bind_rows select distinct
+#' @importFrom lubridate as_datetime ymd_hms round_date
 #' @export
 #' @examples
 #' path <- system.file("extdata/ex_data", package = "readosense")
@@ -29,7 +29,10 @@ eo_data <- function(path) {
 
   data <- data_read |>
     mutate(
-      f_datetime = as_datetime(.data$EPOCH_TIME)
-    )
+      f_datetime = as_datetime(.data$EPOCH_TIME),
+      f_datetime = round_date(.data$f_datetime)
+    ) |>
+    distinct(.data$f_datetime, .keep_all = TRUE) # some are doubled
+
   data
 }

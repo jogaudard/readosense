@@ -17,9 +17,10 @@ eo_logs <- function(logs,
     mutate(
       .by = "measurement_id",
       closing = min(.data$datetime) - time_buffer,
-      opening = max(.data$datetime) + time_buffer
+      opening = max(.data$datetime) + time_buffer,
+      temp_epochtime = min(.data$epochtime)
     ) |>
-    select("measurement_id", "port", "closing", "opening") |>
+    select("measurement_id", "port", "closing", "opening", "temp_epochtime") |>
     distinct()
 
 

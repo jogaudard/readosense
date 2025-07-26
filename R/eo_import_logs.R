@@ -9,8 +9,8 @@
 #' @importFrom readr read_log
 #' @importFrom tidyr pivot_longer
 #' @importFrom dplyr arrange mutate case_when consecutive_id filter bind_rows
-#' select
-#' @importFrom lubridate as_datetime
+#' select distinct
+#' @importFrom lubridate as_datetime round_date
 #' @export
 #' @examples
 #' path <- system.file("extdata/ex_logs", package = "readosense")
@@ -63,7 +63,8 @@ chamber_log_all <- chamber_log_read |>
             .data$chamberstatus == open ~ "closed"
         ),
         change_id = consecutive_id(.data$port, .data$chamberstatus), #detecting if same port but new measurement
-        datetime = as_datetime(.data$epochtime) # we work in datetime
+        datetime = as_datetime(.data$epochtime), # we work in datetime
+        datetime = round_date(.data$datetime)
     ) |>
     filter(
         .data$chamberstatus == fully_closed
@@ -71,7 +72,8 @@ chamber_log_all <- chamber_log_read |>
     mutate(
         measurement_id = consecutive_id(.data$change_id) # just getting rid of the missing id after filter
         ) |>
-    select(!"variable")
+    select(!"variable") |>
+    distinct(.data$datetime, .keep_all = TRUE) # some are doubled
     
     chamber_log_all
                    }
