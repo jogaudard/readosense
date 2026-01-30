@@ -1,6 +1,6 @@
 #' imports data files from Eosense chambers
 #' @param path location of the data files
-#' @return a dataframe with conitnuous measurement with timestamps
+#' @return a dataframe with continuous measurement with timestamps
 #' @importFrom purrr map
 #' @importFrom readr read_table
 #' @importFrom dplyr mutate bind_rows select distinct
