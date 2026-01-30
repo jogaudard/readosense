@@ -16,7 +16,12 @@ eo_env <- function(logs) {
   chamber_temp_pres <- logs |>
     mutate(
       # need to ask the exact conversion factor, for now this one makes sense
-      air_temp = 1 / (0.0000000876656 * log((5.0 / (.data$temperaturev / 2150))) - 2150)^3 + 0.000234126 * log((5.0 / (.data$temperaturev / 2150) - 2150) + 0.001129138),
+      air_temp =
+        1 / (
+          0.0000000876656 * log((5.0 / (.data$temperaturev / 2150))) - 2150
+        )^3
+        + 0.000234126
+        * log((5.0 / (.data$temperaturev / 2150) - 2150) + 0.001129138),
       pressure = .data$pressure / 101.325 # need atm for fluxible
     ) |>
     select("datetime", "air_temp", "pressure")

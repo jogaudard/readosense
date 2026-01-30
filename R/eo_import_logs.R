@@ -52,30 +52,38 @@ eo_import_logs <- function(path,
     ) |>
     bind_rows()
 
-# repeated colnames are normal
-chamber_log_all <- chamber_log_read |>
-    pivot_longer(!c("epochtime"), names_to = c(".value", "variable"), names_sep = "_") |>
+  # repeated colnames are normal
+  chamber_log_all <- chamber_log_read |>
+    pivot_longer(
+      !c("epochtime"), names_to = c(".value", "variable"), names_sep = "_"
+    ) |>
     filter(
-        .data$port %in% seq_nb_ports # we filter out all the rows with port -1
+      .data$port %in% seq_nb_ports # we filter out all the rows with port -1
     ) |>
     arrange(.data$epochtime) |> # just to be sure
     mutate( # without grouping
-        chamber = case_when(
-            .data$chamberstatus %in% closed ~ "open",
-            .data$chamberstatus == open ~ "closed"
-        ),
-        change_id = consecutive_id(.data$port, .data$chamberstatus), #detecting if same port but new measurement
-        datetime = as_datetime(.data$epochtime), # we work in datetime
-        datetime = round_date(.data$datetime)
+      chamber = case_when(
+        .data$chamberstatus %in% closed ~ "open",
+        .data$chamberstatus == open ~ "closed"
+      ),
+      change_id =
+        consecutive_id(
+          .data$port, .data$chamberstatus
+        ), #detecting if same port but new measurement
+      datetime = as_datetime(.data$epochtime), # we work in datetime
+      datetime = round_date(.data$datetime)
     ) |>
     filter(
-        .data$chamberstatus == fully_closed
+      .data$chamberstatus == fully_closed
     ) |>
     mutate(
-        measurement_id = consecutive_id(.data$change_id) # just getting rid of the missing id after filter
-        ) |>
+      measurement_id =
+        consecutive_id(
+          .data$change_id
+        ) # just getting rid of the missing id after filter
+    ) |>
     select(!"variable") |>
     distinct(.data$datetime, .keep_all = TRUE) # some are doubled
-    
-    chamber_log_all
-                   }
+
+  chamber_log_all
+}

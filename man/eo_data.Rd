@@ -10,7 +10,7 @@ eo_data(path)
 \item{path}{location of the data files}
 }
 \value{
-a dataframe with conitnuous measurement with timestamps
+a dataframe with continuous measurement with timestamps
 }
 \description{
 imports data files from Eosense chambers
