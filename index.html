@@ -11,8 +11,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Imports Log and Data Files from Eosense Flux Chambers">
-<meta name="description" content="Imports log and data files from Eosense ecosystem gas fluxes chambers and make them into dataframes that can that can directly be used with fluxible &lt;https://cran.r-project.org/package=fluxible&gt;.">
-<meta property="og:description" content="Imports log and data files from Eosense ecosystem gas fluxes chambers and make them into dataframes that can that can directly be used with fluxible &lt;https://cran.r-project.org/package=fluxible&gt;.">
+<meta name="description" content="Imports log and data files from Eosense ecosystem gas flux chambers into dataframes that can directly be used with fluxible &lt;https://cran.r-project.org/package=fluxible&gt;.">
+<meta property="og:description" content="Imports log and data files from Eosense ecosystem gas flux chambers into dataframes that can directly be used with fluxible &lt;https://cran.r-project.org/package=fluxible&gt;.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">readosense</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +32,7 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -50,7 +51,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The readosense R package provides an easy way to import raw files from <a href="https://eosense.com/" class="external-link">Eosense</a> ecosystem gas flux chambers as R objects that can be used with the <a href="https://plant-functional-trait-course.github.io/fluxible/" class="external-link">Fluxible</a> package.</p>
+<p>The readosense R package provides an easy way to import raw files from <a href="https://eosense.com/" class="external-link">Eosense</a> ecosystem gas flux chambers as dataframes that can be used with the <a href="https://plant-functional-trait-course.github.io/fluxible/" class="external-link">fluxible</a> package.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -66,7 +67,7 @@
 <h3 id="importing-the-log-files">Importing the log files<a class="anchor" aria-label="anchor" href="#importing-the-log-files"></a>
 </h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jogaudard.github.io/readosense">readosense</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jogaudard.github.io/readosense/">readosense</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># this step is not needed if you know where your data are</span></span>
 <span><span class="va">path_logs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/ex_logs"</span>, package <span class="op">=</span> <span class="st">"readosense"</span><span class="op">)</span></span>
@@ -106,8 +107,7 @@
 <span>  field_record <span class="op">=</span> <span class="va">chamber_log</span>,</span>
 <span>  f_datetime <span class="op">=</span> <span class="va">f_datetime</span>,</span>
 <span>  start_col <span class="op">=</span> <span class="va">closing</span>,</span>
-<span>  end_col <span class="op">=</span> <span class="va">opening</span>,</span>
-<span>  fixed_length <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  end_col <span class="op">=</span> <span class="va">opening</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
@@ -160,7 +160,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
