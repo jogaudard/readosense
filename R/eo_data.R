@@ -3,7 +3,7 @@
 #' @return a dataframe with continuous measurement with timestamps
 #' @importFrom purrr map
 #' @importFrom readr read_table
-#' @importFrom dplyr mutate bind_rows select distinct
+#' @importFrom dplyr mutate bind_rows select distinct relocate
 #' @importFrom lubridate as_datetime ymd_hms round_date
 #' @importFrom rlang .data
 #' @export
@@ -33,7 +33,8 @@ eo_data <- function(path) {
       f_datetime = as_datetime(.data$EPOCH_TIME),
       f_datetime = round_date(.data$f_datetime)
     ) |>
-    distinct(.data$f_datetime, .keep_all = TRUE) # some are doubled
+    distinct(.data$f_datetime, .keep_all = TRUE) |> # some are doubled
+    relocate("f_datetime")
 
   data
 }
