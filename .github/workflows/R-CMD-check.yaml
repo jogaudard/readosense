@@ -29,7 +29,7 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
-      R_COMPILE_UNUSED_PACKAGES_FROM_SOURCE: never
+      R_COMPILE_YESNO: always
 
     steps:
       - uses: actions/checkout@v4
@@ -40,13 +40,11 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
-          use-public-rspm: ${{ matrix.config.os != 'macos-latest' }}
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
           needs: check
-          upgrade: 'false'
 
       - uses: r-lib/actions/check-r-package@v2
         with:
