@@ -41,6 +41,10 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: ${{ matrix.config.os != 'macos-latest' }}
 
+      - name: Preinstall pkgload
+        if: ${{ matrix.config.os == 'macos-latest' }}
+        run: Rscript -e 'install.packages("pkgload", repos = "https://cloud.r-project.org")'
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
