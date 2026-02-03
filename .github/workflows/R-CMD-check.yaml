@@ -42,7 +42,7 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
 
       - name: Remove stale lockfile
-        run: rm -f .github/pkg.lock
+        run: rm -Force .github/pkg.lock
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
