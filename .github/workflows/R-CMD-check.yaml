@@ -48,6 +48,7 @@ jobs:
         with:
           extra-packages: any::rcmdcheck
           needs: check
+          cache: ${{ matrix.config.os != 'macos-latest' }}
 
       - uses: r-lib/actions/check-r-package@v2
         with:
