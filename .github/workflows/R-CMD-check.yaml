@@ -29,6 +29,7 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
+      R_COMPILE_UNUSED_PACKAGES_FROM_SOURCE: never
 
     steps:
       - uses: actions/checkout@v4
@@ -41,15 +42,11 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: ${{ matrix.config.os != 'macos-latest' }}
 
-      - name: Preinstall pkgload
-        if: ${{ matrix.config.os == 'macos-latest' }}
-        run: Rscript -e 'install.packages("pkgload", repos = "https://cloud.r-project.org")'
-
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
           needs: check
-          dependencies: packages
+          upgrade: false
 
       - uses: r-lib/actions/check-r-package@v2
         with:
