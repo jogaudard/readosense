@@ -23,24 +23,24 @@ a dataframe with continuous measurement with timestamps
 ``` r
 path <- system.file("extdata/ex_data", package = "readosense")
 eo_data(path)
-#> # A tibble: 28,864 × 39
-#>    DATE       TIME     FRAC_DAYS_SINCE_JAN1 FRAC_HRS_SINCE_JAN1 JULIAN_DAYS
-#>    <date>     <time>                  <dbl>               <dbl>       <dbl>
-#>  1 2024-12-12 08:56:26                 346.               8313.        347.
-#>  2 2024-12-12 08:56:28                 346.               8313.        347.
-#>  3 2024-12-12 08:56:29                 346.               8313.        347.
-#>  4 2024-12-12 08:56:29                 346.               8313.        347.
-#>  5 2024-12-12 08:56:31                 346.               8313.        347.
-#>  6 2024-12-12 08:56:31                 346.               8313.        347.
-#>  7 2024-12-12 08:56:33                 346.               8313.        347.
-#>  8 2024-12-12 08:56:33                 346.               8313.        347.
-#>  9 2024-12-12 08:56:35                 346.               8313.        347.
-#> 10 2024-12-12 08:56:36                 346.               8313.        347.
-#> # ℹ 28,854 more rows
-#> # ℹ 34 more variables: EPOCH_TIME <dbl>, ALARM_STATUS <dbl>, INST_STATUS <dbl>,
+#> # A tibble: 319 × 39
+#>    f_datetime          DATE       TIME     FRAC_DAYS_SINCE_JAN1
+#>    <dttm>              <date>     <time>                  <dbl>
+#>  1 2024-12-12 17:08:00 2024-12-12 09:08:00                 346.
+#>  2 2024-12-12 17:08:01 2024-12-12 09:08:00                 346.
+#>  3 2024-12-12 17:08:02 2024-12-12 09:08:02                 346.
+#>  4 2024-12-12 17:08:03 2024-12-12 09:08:02                 346.
+#>  5 2024-12-12 17:08:04 2024-12-12 09:08:04                 346.
+#>  6 2024-12-12 17:08:05 2024-12-12 09:08:04                 346.
+#>  7 2024-12-12 17:08:06 2024-12-12 09:08:05                 346.
+#>  8 2024-12-12 17:08:07 2024-12-12 09:08:07                 346.
+#>  9 2024-12-12 17:08:08 2024-12-12 09:08:07                 346.
+#> 10 2024-12-12 17:08:09 2024-12-12 09:08:09                 346.
+#> # ℹ 309 more rows
+#> # ℹ 35 more variables: FRAC_HRS_SINCE_JAN1 <dbl>, JULIAN_DAYS <dbl>,
+#> #   EPOCH_TIME <dbl>, ALARM_STATUS <dbl>, INST_STATUS <dbl>,
 #> #   CavityPressure <dbl>, CavityTemp <dbl>, DasTemp <dbl>, EtalonTemp <dbl>,
 #> #   WarmBoxTemp <dbl>, species <dbl>, MPVPosition <dbl>, OutletValve <dbl>,
 #> #   solenoid_valves <dbl>, N2O <dbl>, N2O_30s <dbl>, N2O_1min <dbl>,
-#> #   N2O_5min <dbl>, N2O_dry <dbl>, N2O_dry30s <dbl>, N2O_dry1min <dbl>,
-#> #   N2O_dry5min <dbl>, CO2 <dbl>, CO2_dry <dbl>, CH4 <dbl>, CH4_dry <dbl>, …
+#> #   N2O_5min <dbl>, N2O_dry <dbl>, N2O_dry30s <dbl>, N2O_dry1min <dbl>, …
 ```

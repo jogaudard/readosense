@@ -51,7 +51,7 @@ a dataframe with all the information from the logs and measurement id
 ``` r
 path <- system.file("extdata/ex_logs", package = "readosense")
 eo_import_logs(path)
-#> # A tibble: 3,728 × 15
+#> # A tibble: 352 × 15
 #>     epochtime  port valvestatus chamberstatus  aux1  aux2   aux3  aux4  aux5
 #>         <dbl> <dbl>       <dbl>         <dbl> <dbl> <dbl>  <dbl> <dbl> <dbl>
 #>  1 1734023580     1          10             1 2426.     5 0.0259     0     0
@@ -64,7 +64,7 @@ eo_import_logs(path)
 #>  8 1734023608     1          10             1 2426.     5 0.0260     0     0
 #>  9 1734023612     1          10             1 2426.     5 0.0262     0     0
 #> 10 1734023616     1          10             1 2426.     5 0.0253     0     0
-#> # ℹ 3,718 more rows
+#> # ℹ 342 more rows
 #> # ℹ 6 more variables: temperaturev <dbl>, pressure <dbl>, chamber <chr>,
 #> #   change_id <int>, datetime <dttm>, measurement_id <int>
 ```

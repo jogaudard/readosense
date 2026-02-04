@@ -26,7 +26,7 @@ a dataframe with the datetime, air temperature (celsius), and pressure
 path <- system.file("extdata/ex_logs", package = "readosense")
 eo_import_logs(path) |>
 eo_env()
-#> # A tibble: 3,728 × 3
+#> # A tibble: 352 × 3
 #>    datetime            air_temp pressure
 #>    <dttm>                 <dbl>    <dbl>
 #>  1 2024-12-12 17:13:00  0.00233     1.02
@@ -39,5 +39,5 @@ eo_env()
 #>  8 2024-12-12 17:13:28  0.00233     1.02
 #>  9 2024-12-12 17:13:32  0.00233     1.02
 #> 10 2024-12-12 17:13:36  0.00233     1.02
-#> # ℹ 3,718 more rows
+#> # ℹ 342 more rows
 ```
