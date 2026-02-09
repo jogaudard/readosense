@@ -6,7 +6,10 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/jogaudard/readosense/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jogaudard/readosense/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/readosense)](https://CRAN.R-project.org/package=readosense)
 [![LifeCycle](https://img.shields.io/badge/lifecycle-experimental-orange)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![cranlogs](https://cranlogs.r-pkg.org/badges/readosense)](https://cran.r-project.org/package=readosense)
 <!-- badges: end -->
 
 The readosense R package provides an easy way to import raw files from
@@ -17,7 +20,13 @@ package.
 
 ## Installation
 
-You can install the development version of readosense from
+readosense can be installed from CRAN:
+
+``` r
+install.packages("readosense")
+```
+
+Or you can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r

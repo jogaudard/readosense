@@ -1,12 +1,17 @@
 ## R CMD check results
-Duration: 1m 38.7s
+Duration: 1m 25s
 
-Possibly misspelled words in DESCRIPTION:
-    Eosense (2:40, 7:46)
+New submission
   
-  Size of tarball: 11687258 bytes
+  Possibly misspelled words in DESCRIPTION:
+    Eosense (2:40, 7:47)
+    Gaudard (7:145)
+    al (7:156)
+    et (7:153)
+    fluxible (7:132)
 
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
-* Eosense is an equipment manufacturer's name.
+* Eosense is an equipment manufacturer.
+* Gaudard is fluxible's maintainer.
