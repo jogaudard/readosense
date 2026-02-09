@@ -8,7 +8,13 @@ package.
 
 ## Installation
 
-You can install the development version of readosense from
+readosense can be installed from CRAN:
+
+``` r
+install.packages("readosense")
+```
+
+Or you can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
